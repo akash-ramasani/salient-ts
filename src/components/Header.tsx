@@ -1,5 +1,6 @@
 'use client'
-
+import Image from 'next/image'
+import pjtsau_logo from '@/images/logos/pjtsau_logo.png'
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
@@ -9,6 +10,7 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
+import { OrganizeImportsMode } from 'typescript'
 
 function MobileNavLink({
   href,
@@ -104,7 +106,7 @@ export function Header() {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href="#" aria-label="Home">
-              <Logo className="h-10 w-auto" />
+              <Image className="h-12 w-auto" src={pjtsau_logo} alt='' />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="#stats">Stats</NavLink>

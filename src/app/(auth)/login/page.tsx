@@ -1,8 +1,8 @@
 import Link from 'next/link'
-
+import Image from 'next/image'
+import pjtsau_logo from '@/images/logos/pjtsau_logo.png'
 import { Button } from '@/components/Button'
 import { TextField } from '@/components/Fields'
-import { Logo } from '@/components/Logo'
 import { SlimLayout } from '@/components/SlimLayout'
 import { type Metadata } from 'next'
 
@@ -14,9 +14,9 @@ export default function Login() {
   return (
     <SlimLayout>
       <div className="flex">
-        <Link href="/" aria-label="Home">
-          <Logo className="h-10 w-auto" />
-        </Link>
+      <Link href="#" aria-label="Home">
+        <Image className="h-12 w-auto" src={pjtsau_logo} alt='' />
+      </Link>
       </div>
       <h2 className="mt-20 text-lg font-semibold text-gray-900">
         Sign in to your account

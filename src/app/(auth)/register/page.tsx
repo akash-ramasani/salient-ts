@@ -1,5 +1,6 @@
 import Link from 'next/link'
-
+import Image from 'next/image'
+import pjtsau_logo from '@/images/logos/pjtsau_logo.png'
 import { Button } from '@/components/Button'
 import { SelectField, TextField } from '@/components/Fields'
 import { Logo } from '@/components/Logo'
@@ -14,9 +15,9 @@ export default function Register() {
   return (
     <SlimLayout>
       <div className="flex">
-        <Link href="/" aria-label="Home">
-          <Logo className="h-10 w-auto" />
-        </Link>
+      <Link href="#" aria-label="Home">
+              <Image className="h-12 w-auto" src={pjtsau_logo} alt='' />
+            </Link>
       </div>
       <h2 className="mt-20 text-lg font-semibold text-gray-900">Create account</h2>
       <p className="mt-2 text-sm text-gray-700">"For authorized personnel only: Please proceed with caution when creating accounts."</p>

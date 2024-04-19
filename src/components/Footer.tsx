@@ -1,5 +1,6 @@
 import Link from 'next/link'
-
+import Image from 'next/image'
+import pjtsau_logo from '@/images/logos/pjtsau_logo.png'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
@@ -9,7 +10,7 @@ export function Footer() {
     <footer className="bg-slate-50">
       <Container>
         <div className="py-16">
-          <Logo className="mx-auto h-10 w-auto" />
+            <Image className="mx-auto h-12 w-auto" src={pjtsau_logo} alt='' />
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
             <NavLink href="#stats">Stats</NavLink>

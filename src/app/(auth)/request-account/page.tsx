@@ -4,7 +4,8 @@ import { TextField } from '@/components/Fields'
 import { Logo } from '@/components/Logo'
 import { SlimLayout } from '@/components/SlimLayout'
 import { type Metadata } from 'next'
-
+import Image from 'next/image'
+import pjtsau_logo from '@/images/logos/pjtsau_logo.png'
 export const metadata: Metadata = {
     title: 'Request Account',
 }
@@ -13,9 +14,9 @@ export default function Contact() {
     return (
         <SlimLayout>
             <div className="flex">
-                <Link href="/" aria-label="Home">
-                    <Logo className="h-10 w-auto" />
-                </Link>
+            <Link href="#" aria-label="Home">
+              <Image className="h-12 w-auto" src={pjtsau_logo} alt='' />
+            </Link>
             </div>
             <h2 className="mt-20 text-lg font-semibold text-gray-900">Request an Account</h2>
             <p className="mt-2 text-sm text-gray-700">Interested in joining? Get in touch with us to request access.</p>

@@ -1,19 +1,22 @@
 import { type Metadata } from 'next'
 
+import Image from 'next/image';
+
+import Karimnagar_District from '@/images/Karimnagar.png'
+
 export const metadata: Metadata = {
-  title: 'Telangana Map',
+  title: 'Karimnagar | Telangana ',
 }
-export default function Telangana() {
+export default function Karimnagar() {
     return (
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8">
+        
         <div>
           <div className="aspect-h-2 aspect-w-3 w-full overflow-hidden rounded-lg">
-            <a href="/telangana/karimnagar">
-              <img
-                src="https://www.telangana.gov.in/wp-content/uploads/2023/09/Telangana-State-Map.png"
+            <a href="/telangana/karimnagar/choppadandi">
+              <Image
+                src={Karimnagar_District}
                 alt="Map of Telangana"
-                width="1879"
-                height="1897"
                 className="h-full w-full object-cover object-center"
               />
             </a>
@@ -24,7 +27,7 @@ export default function Telangana() {
             <div className="px-8 sm:px-6 lg:px-8 pb-28 pt-20 sm:py-32">
               <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
-                  <h1 className="text-base font-semibold leading-6 text-gray-900">Telangana Crops</h1>
+                  <h1 className="text-base font-semibold leading-6 text-gray-900">Karimnagar Crops</h1>
                   <p className="mt-2 text-sm text-gray-700">A list of all the crops including their names and areas under cultivation.</p>
                 </div>
               </div>

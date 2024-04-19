@@ -1,16 +1,17 @@
 import { type Metadata } from 'next'
-
+import Image from 'next/image';
+import Arnaknda_Map_SurveyNumbers from '@/images/Arnaknda_Map_SurveyNumbers.png'
 export const metadata: Metadata = {
-  title: 'Telangana Map',
+  title: 'Arnakonda | Choppadandi',
 }
-export default function Telangana() {
+export default function Arnakonda() {
     return (
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8">
         <div>
           <div className="aspect-h-2 aspect-w-3 w-full overflow-hidden rounded-lg">
             <a href="/telangana/karimnagar">
-              <img
-                src="https://www.telangana.gov.in/wp-content/uploads/2023/09/Telangana-State-Map.png"
+              <Image
+                src={Arnaknda_Map_SurveyNumbers}
                 alt="Map of Telangana"
                 width="1879"
                 height="1897"
@@ -19,15 +20,36 @@ export default function Telangana() {
             </a>
           </div>
         </div>
-        <div>
+        
           <div className="aspect-h-2 aspect-w-3 w-full overflow-hidden rounded-lg">
             <div className="px-8 sm:px-6 lg:px-8 pb-28 pt-20 sm:py-32">
+              
+              
+
               <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
-                  <h1 className="text-base font-semibold leading-6 text-gray-900">Telangana Crops</h1>
+                  <h1 className="text-base font-semibold leading-6 text-gray-900">Arnakonda Crops</h1>
                   <p className="mt-2 text-sm text-gray-700">A list of all the crops including their names and areas under cultivation.</p>
                 </div>
               </div>
+              <div>
+                
+          <div className='flex items-center justify-end gap-x-6'>
+            <label className="text-base font-semibold text-gray-900 ce">Season</label>
+            <fieldset className="mt-4">
+              <legend className="sr-only">Notification method</legend>
+              <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
+                <div className="flex items-center">
+                  <input id="email" name="notification-method" type="radio" checked className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                  <label for="email" className="ml-3 block text-sm font-medium leading-6 text-gray-900">Kharif</label>
+                </div>
+                <div className="flex items-center">
+                  <input id="sms" name="notification-method" type="radio" className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                  <label for="sms" className="ml-3 block text-sm font-medium leading-6 text-gray-900">Rabi</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
               <div className="mt-8 flow-root">
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
