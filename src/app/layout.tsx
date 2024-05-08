@@ -39,6 +39,10 @@ export default function RootLayout({
         lexend.variable,
       )}
     >
+      <head>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet"/>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+      </head>
       <body className="flex h-full flex-col">{children}</body>
     </html>
   )

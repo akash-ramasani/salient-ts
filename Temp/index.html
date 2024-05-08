@@ -1,67 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text | HTML & CSS Tutirial</title>
-    <style>
-        * {
-            padding: 5px;
-            margin: 0px;
-        }
-        body {
-            background-color: aliceblue;
-            color: #101010;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            padding: 10px;
-            font-family: 'Georgia';
-            text-transform: capitalize;
-        }
-        h1 {
-            text-align: center;
-            text-decoration: blue underline wavy;
-        }
-        p {
-            text-align: justify;
-            font-family: 'Verdana';
-        }
-        .flex-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-        #map {
-            width: 800px;
-            height: 800px;
-            border-radius: 30px;
-        }
-    </style>
-
-    <!-- Mapbox CSS -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
-
-    <!-- Mapbox JS -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+<meta charset="utf-8">
+<title>Show polygon information on click</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
 </head>
-    <body>
-        <h1>Mapbox</h1>
-        
-        <div class="flex-container">
-            <div id='map'></div>
-        </div>
-        
+<body>
+<style>
+    .mapboxgl-popup {
+        max-width: 400px;
+        font:
+            12px/20px 'Helvetica Neue',
+            Arial,
+            Helvetica,
+            sans-serif;
+    }
+</style>
+<div id="map"></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoid3RjLXJzZ2lzIiwiYSI6ImNsdnhwaXcxaDI2eHgya21zZHN3YzM4dncifQ.YG3hBFckuoI3dK4DKCk4tw';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [79, 19],
+        zoom: 6,
+        minZoom: 6, // Set minimum zoom level to 7 or any level you prefer
+        maxZoom: 14 // Optional: you can also set a maximum zoom level
+    });
 
-        <script>
-            mapboxgl.accessToken = 'pk.eyJ1Ijoid3RjLXJzZ2lzIiwiYSI6ImNsdnhwaXcxaDI2eHgya21zZHN3YzM4dncifQ.YG3hBFckuoI3dK4DKCk4tw';
-            const map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v12',
-                center: [79.2, 17.9],
-                zoom: 7,
-            });
-        </script>
+    map.on('load', () => {
+        map.addSource('states', {
+            'type': 'geojson',
+            'data': 'https://xnptieilqjrdcjgzaviz.supabase.co/storage/v1/object/public/temp/District_Boundary.geojson?t=2024-05-08T20%3A44%3A00.586Z'
+        });
 
-    </body>
+        map.addLayer({
+            'id': 'states-layer',
+            'type': 'fill',
+            'source': 'states',
+            'paint': {
+                'fill-color': 'rgba(200, 100, 240, 0.2)',
+                'fill-outline-color': 'green'
+            }
+        });
+
+        map.on('click', 'states-layer', (e) => {
+            const districtName = e.features[0].properties.Dist_Name;
+            const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(districtName)}`;
+            window.open(url, '_blank');
+        });
+
+        map.on('mouseenter', 'states-layer', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', 'states-layer', () => {
+            map.getCanvas().style.cursor = '';
+        });
+    });
+</script>
+
+
+
+</body>
 </html>
