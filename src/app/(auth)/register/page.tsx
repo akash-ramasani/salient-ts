@@ -3,7 +3,6 @@ import Image from 'next/image'
 import pjtsau_logo from '@/images/logos/pjtsau_logo.png'
 import { Button } from '@/components/Button'
 import { SelectField, TextField } from '@/components/Fields'
-import { Logo } from '@/components/Logo'
 import { SlimLayout } from '@/components/SlimLayout'
 import { type Metadata } from 'next'
 
@@ -20,7 +19,7 @@ export default function Register() {
             </Link>
       </div>
       <h2 className="mt-20 text-lg font-semibold text-gray-900">Create account</h2>
-      <p className="mt-2 text-sm text-gray-700">"For authorized personnel only: Please proceed with caution when creating accounts."</p>
+      <p className="mt-2 text-sm text-gray-700">For authorized personnel only: Please proceed with caution when creating accounts.</p>
       <form
         action="#"
         className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2"

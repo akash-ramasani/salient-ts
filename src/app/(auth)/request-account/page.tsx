@@ -14,7 +14,7 @@ export default function Contact() {
     return (
         <SlimLayout>
             <div className="flex">
-            <Link href="#" aria-label="Home">
+            <Link href="/" aria-label="Home">
               <Image className="h-12 w-auto" src={pjtsau_logo} alt='' />
             </Link>
             </div>

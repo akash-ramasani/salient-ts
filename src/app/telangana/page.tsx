@@ -1,5 +1,5 @@
 import { type Metadata } from 'next'
-
+import Kharif_Rice_Areas from '@/Kharif_Rice_Areas.json'
 export const metadata: Metadata = {
   title: 'Telangana Map',
 }
@@ -35,24 +35,19 @@ export default function Telangana() {
                       <table className="min-w-full divide-y divide-gray-300 text-center">
                         <thead className="bg-gray-50">
                           <tr>
-                            <th scope="col" className="py-3.5 pl-4 pr-3 text-sm font-semibold text-gray-900 sm:pl-6">#</th>
-                            <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900">Crop Name</th>
-                            <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900">Crop Area</th>
+                            <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900">District</th>
+                            <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900">2021</th>
+                            <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900">2022</th>
+                            <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900">2023</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200 bg-white">
-                          {[
-                            { id: 1, name: 'Rice', area: '44 lakh ac.' },
-                            { id: 2, name: 'Maize/Corn', area: '14 lakh ac.' },
-                            { id: 3, name: 'Jowar/Sorghum', area: '1.20 lakh ac.' },
-                            { id: 4, name: 'Cotton', area: '12.5 lakh ha.' },
-                            { id: 5, name: 'Castor', area: '85,000 ha.' },
-                            { id: 6, name: 'Groundnut', area: '2 lakh ac.' }
-                          ].map(crop => (
-                            <tr key={crop.id}>
-                              <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{crop.id}</td>
-                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{crop.name}</td>
-                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{crop.area}</td>
+                          {Kharif_Rice_Areas.map(crop => (
+                            <tr key={crop.District}>
+                              <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{crop.District}</td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{crop[2021].toFixed(2)}</td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{crop[2022].toFixed(2)}</td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{crop[2023].toFixed(2)}</td>
                             </tr>
                           ))}
                         </tbody>

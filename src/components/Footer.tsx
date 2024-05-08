@@ -1,8 +1,8 @@
 import Link from 'next/link'
+
 import Image from 'next/image'
 import pjtsau_logo from '@/images/logos/pjtsau_logo.png'
 import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
 
 export function Footer() {
