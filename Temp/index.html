@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text | HTML & CSS Tutirial</title>
+    <style>
+        * {
+            padding: 5px;
+            margin: 0px;
+        }
+        body {
+            background-color: aliceblue;
+            color: #101010;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            padding: 10px;
+            font-family: 'Georgia';
+            text-transform: capitalize;
+        }
+        h1 {
+            text-align: center;
+            text-decoration: blue underline wavy;
+        }
+        p {
+            text-align: justify;
+            font-family: 'Verdana';
+        }
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        #map {
+            width: 800px;
+            height: 800px;
+            border-radius: 30px;
+        }
+    </style>
+
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Mapbox JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+</head>
+    <body>
+        <h1>Mapbox</h1>
+        
+        <div class="flex-container">
+            <div id='map'></div>
+        </div>
+        
+
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1Ijoid3RjLXJzZ2lzIiwiYSI6ImNsdnhwaXcxaDI2eHgya21zZHN3YzM4dncifQ.YG3hBFckuoI3dK4DKCk4tw';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12',
+                center: [79.2, 17.9],
+                zoom: 7,
+            });
+        </script>
+
+    </body>
+</html>
